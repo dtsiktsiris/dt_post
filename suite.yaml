@@ -1,0 +1,16 @@
+vars:
+  baseUrl: 'https://fakestoreapi.com'
+
+controllers:
+  - type: 'simple'
+    request:
+      method: 'GET'
+      url: '{{baseUrl}}/products'
+    keep:
+      firstIDfromResponse: '$[0].id'
+  - type: 'simple'
+    request:
+      method: 'GET'
+      url: 'https://fakestoreapi.com/products/{{firstIDfromResponse}}'
+    keep:
+      category: '$.category'
