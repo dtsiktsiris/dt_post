@@ -1,7 +1,7 @@
-import yaml
+import jsonpath
 import re
 import requests
-import jsonpath
+import yaml
 
 
 def replace_vars(request):
