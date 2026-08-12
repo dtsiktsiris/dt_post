@@ -9,8 +9,7 @@ authors = [
 requires-python = ">=3.14"
 dependencies = [
     "python-jsonpath==2.2.1",
-    "PyYAML==6.0.3",
-    "requests==2.34.2"
+    "requests==2.34.2",
 ]
 
 [project.scripts]
@@ -24,3 +23,6 @@ build-backend = "uv_build"
 dev = [
     "ruff>=0.16.2",
 ]
+
+[tool.uv]
+package = true

@@ -1,0 +1,26 @@
+{
+  "controllers": [
+    {
+      "name": "get all products",
+      "type": "simple",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/products"
+      },
+      "keep": {
+        "firstIDfromResponse": "$[0].id"
+      }
+    },
+    {
+      "name": "get one and keep category",
+      "type": "simple",
+      "request": {
+        "method": "GET",
+        "url": "https://fakestoreapi.com/products/{{firstIDfromResponse}}"
+      },
+      "keep": {
+        "category": "$.category"
+      }
+    }
+  ]
+}
