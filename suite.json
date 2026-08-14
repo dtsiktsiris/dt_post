@@ -16,7 +16,7 @@
       "type": "simple",
       "request": {
         "method": "GET",
-        "url": "https://fakestoreapi.com/products/{{firstIDfromResponse}}"
+        "url": "{{baseUrl}}/products/{{firstIDfromResponse}}"
       },
       "keep": {
         "category": "$.category"

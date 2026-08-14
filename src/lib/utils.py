@@ -1,5 +1,16 @@
+import re
+
 import jsonpath
 import requests
+
+
+def replace_dynamic_vars(value, vars):
+    to_replace = re.findall("{{(.*?)}}", value)
+    for x in to_replace:
+        value = value.replace(x, vars[x])
+    value = value.replace("{{", "").replace("}}", "")
+    return value
+    
 
 
 def send_request(request):

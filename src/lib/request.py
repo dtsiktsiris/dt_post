@@ -1,6 +1,5 @@
-import re
-
 from lib.enums import Method
+from lib.utils import replace_dynamic_vars
 
 
 class Request:
@@ -9,8 +8,5 @@ class Request:
     body: str | None
 
 
-    def replace_dynamic_vars(self, vars):
-        to_replace = re.findall("{{.+}}", self.url)
-        for x in to_replace:
-            x_without_brackets = x[2:-2]
-            self.url = self.url.replace(x, vars[x_without_brackets])
+    def prepare_before_run(self, vars):
+        self.url = replace_dynamic_vars(self.url, vars)

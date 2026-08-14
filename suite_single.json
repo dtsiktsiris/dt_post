@@ -1,0 +1,15 @@
+{
+  "controllers": [
+    {
+      "name": "get all products",
+      "type": "simple",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/{{prd}}"
+      },
+      "keep": {
+        "firstIDfromResponse": "$[0].id"
+      }
+    }
+  ]
+}
