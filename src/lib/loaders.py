@@ -1,31 +1,27 @@
-from typing import List
 
-from requests import Request
 
-from lib.controller import Controller, SimpleController
+
+from lib.controller_factory import get_controller_by_type
+from lib.request import Request
 
 
 def load_from_json(jsonSuite):
-    controllers : List[Controller] = list()
-    
+    controllers = []
+
     for controller in jsonSuite["controllers"]:
         # print(controller)
-        tempController = SimpleController()
+        tempController = get_controller_by_type(controller["type"])
+        
         tempController.name = controller["name"]
         tempController.type = controller["type"]
 
         req = Request()
         req.url = controller["request"]["url"]
         req.method = controller["request"]["method"]
-
         tempController.request = req
 
         tempController.keep = controller["keep"]
 
-        # print(repr(tempController))
-        # print(tempController.request.method)
-
         controllers.append(tempController)
-
 
     return controllers

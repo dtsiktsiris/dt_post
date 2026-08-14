@@ -1,7 +1,7 @@
 from abc import ABC
-from dataclasses import dataclass
 
-from requests import Request
+from lib.request import Request
+
 
 class Controller(ABC):
     name: str
@@ -9,8 +9,9 @@ class Controller(ABC):
     request: Request
     keep: dict
 
+
 class SimpleController(Controller):
-    pass
+
 
     def __repr__(self):
         return f"{self.__class__!s}({self.__dict__!r})"
