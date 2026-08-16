@@ -20,4 +20,4 @@ def main() -> None:
 
     suite.run()
 
-    print(suite.vars)
+    # print(suite.vars)

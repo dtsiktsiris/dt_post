@@ -1,6 +1,8 @@
 
 
 
+import json
+
 from lib.controller_factory import get_controller_by_type
 from lib.request import Request
 
@@ -18,6 +20,12 @@ def load_from_json(jsonSuite):
         req = Request()
         req.url = controller["request"]["url"]
         req.method = controller["request"]["method"]
+        try:
+            body = controller["request"]["body"]
+            req.body = body
+        except:
+            req.body = None
+
         tempController.request = req
 
         tempController.keep = controller["keep"]
