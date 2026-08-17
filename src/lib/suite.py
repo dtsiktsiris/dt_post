@@ -8,8 +8,8 @@ class Suite:
 
     def run(self):
         for controller in self.controllers:
-            controller.request.prepare_before_run(self.vars)
+            controller.replace_dynamic_values(self.vars)
 
-            response = send_request(controller.request)
+            controller.execute()
 
-            extract_values(controller.keep, response.json(), self.vars)
+            controller.keep_values(self.vars)

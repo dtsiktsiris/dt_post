@@ -16,6 +16,4 @@ class Request:
 
             tempBody = json.dumps(self.body)
             tempBody = replace_dynamic_vars(tempBody, vars)
-            print(tempBody)
-            print(json.loads(tempBody))
             self.body = json.loads(tempBody)
