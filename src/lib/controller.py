@@ -19,12 +19,22 @@ class Controller(ABC):
     def keep_values(self, vars):
         extract_values(self.keep, self.response.json(), vars)
 
+    def send_request(self):
+        self.response = send_request(self.request)
+
 
 class SimpleController(Controller):
 
-    def execute(self):
-        self.response = send_request(self.request)
-        print('----------')
+    def execute(self, vars):
+        self.replace_dynamic_values(vars)
+
+        self.send_request()
+
+        self.keep_values(vars)
+
+        print('################')
+        print(self.name)
+        print('-----------')
         print(self.response.json())
 
     def __repr__(self):
