@@ -7,7 +7,8 @@ from lib.utils import replace_dynamic_vars
 class Request:
     url: str
     method: Method
-    body: dict | None
+    headers: dict | None = None
+    body: dict | None = None
 
 
     def prepare_before_run(self, vars):

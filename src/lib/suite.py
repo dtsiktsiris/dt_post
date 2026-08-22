@@ -1,5 +1,4 @@
 from lib.controller import Controller
-from lib.utils import extract_values, send_request
 
 
 class Suite:

@@ -20,7 +20,7 @@ def replace_dynamic_vars(value, vars):
 
 
 def send_request(request):
-    return requests.request(request.method, request.url, json = request.body)
+    return requests.request(request.method, request.url, json = request.body, headers=request.headers)
 
 
 def extract_values(keep, json, vars):
