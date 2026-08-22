@@ -1,4 +1,5 @@
 .venv
 
 src/dt_post/__pycache__
+src/dt_post_ui/__pycache__
 src/lib/__pycache__

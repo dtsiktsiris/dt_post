@@ -8,12 +8,14 @@ authors = [
 ]
 requires-python = ">=3.14"
 dependencies = [
+    "pyside6>=6.11.2",
     "python-jsonpath==2.2.1",
     "requests==2.34.2",
 ]
 
 [project.scripts]
 dt-post = "dt_post.main:main"
+dt-post-ui = "dt_post_ui.main:main"
 
 [build-system]
 requires = ["uv_build>=0.12.3,<0.13.0"]

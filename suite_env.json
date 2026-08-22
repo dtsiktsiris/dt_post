@@ -1,6 +1,7 @@
 {
   "vars": {
     "baseUrl": "https://fakestoreapi.com",
-    "prd": "products"
+    "prd": "products",
+    "tempProjectName": "auto_test_((date))"
   }
 }
