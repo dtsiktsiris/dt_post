@@ -1,36 +1,49 @@
 from lib.controller_factory import get_controller_by_type
+from lib.objective import Objective
 from lib.request import Request
 
 
 def load_from_json(jsonSuite):
-    controllers = []
 
-    for controller in jsonSuite["controllers"]:
-        # print(controller)
-        tempController = get_controller_by_type(controller["type"])
-        
-        tempController.name = controller["name"]
-        tempController.type = controller["type"]
+    objectives = []
 
-        req = Request()
-        req.url = controller["request"]["url"]
-        req.method = controller["request"]["method"]
-        try:
-            body = controller["request"]["body"]
-            req.body = body
-        except KeyError:
-            req.body = None
+    for objective in jsonSuite:
+        tempObjective = Objective()
 
-        try:
-            headers = controller["request"]["headers"]
-            req.headers = headers
-        except KeyError:
-            req.headers = None
+        tempObjective.name = objective["name"]
 
-        tempController.request = req
+        controllers = []
 
-        tempController.keep = controller["keep"]
+        for controller in objective["controllers"]:
+            # print(controller)
+            tempController = get_controller_by_type(controller["type"])
+            
+            tempController.name = controller["name"]
+            tempController.type = controller["type"]
 
-        controllers.append(tempController)
+            req = Request()
+            req.url = controller["request"]["url"]
+            req.method = controller["request"]["method"]
+            try:
+                body = controller["request"]["body"]
+                req.body = body
+            except KeyError:
+                req.body = None
 
-    return controllers
+            try:
+                headers = controller["request"]["headers"]
+                req.headers = headers
+            except KeyError:
+                req.headers = None
+
+            tempController.request = req
+
+            tempController.keep = controller["keep"]
+
+            controllers.append(tempController)
+
+        tempObjective.controllers = controllers
+
+        objectives.append(tempObjective)
+
+    return objectives

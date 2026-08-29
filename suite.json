@@ -1,44 +1,45 @@
-{
-  "controllers": [
-    {
-      "name": "get all user and keep first id",
-      "type": "simple",
-      "request": {
-        "method": "GET",
-        "url": "{{baseUrl}}/users"
-      },
-      "keep": {
-        "firstUserID": "$[0].id"
-      }
-    },
-    {
-      "name": "get product and keep it",
-      "type": "simple",
-      "request": {
-        "method": "GET",
-        "url": "{{baseUrl}}/products/1"
-      },
-      "keep": {
-        "firstProduct": "$"
-      }
-    },
-    {
-      "name": "post cart",
-      "type": "simple",
-      "request": {
-        "method": "POST",
-        "url": "{{baseUrl}}/carts",
-        "body": {
-          "id": 120,
-          "userId": "{{firstUserID}}",
-          "products": [
-            "{{firstProduct}}"
-          ]
+[
+  {
+    "name": "Get info and POST a new program",
+    "controllers": [
+      {
+        "name": "get all user and keep first id",
+        "type": "simple",
+        "request": {
+          "method": "GET",
+          "url": "{{baseUrl}}/users"
+        },
+        "keep": {
+          "firstUserID": "$[0].id"
         }
       },
-      "keep": {
-        "product": "$"
+      {
+        "name": "get product and keep it",
+        "type": "simple",
+        "request": {
+          "method": "GET",
+          "url": "{{baseUrl}}/products/1"
+        },
+        "keep": {
+          "firstProduct": "$"
+        }
+      },
+      {
+        "name": "post cart",
+        "type": "simple",
+        "request": {
+          "method": "POST",
+          "url": "{{baseUrl}}/carts",
+          "body": {
+            "id": 120,
+            "userId": "{{firstUserID}}",
+            "products": ["{{firstProduct}}"]
+          }
+        },
+        "keep": {
+          "product": "$"
+        }
       }
-    }
-  ]
-}
+    ]
+  }
+]

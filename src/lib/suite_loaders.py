@@ -15,6 +15,6 @@ def load_from_json_files(suiteFile, envFile) -> Suite:
     with open(suiteFile, "r") as file:
         loaded_data = json.load(file)
 
-        suite.controllers = load_from_json(loaded_data)
+        suite.objectives = load_from_json(loaded_data)
 
     return suite
