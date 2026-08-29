@@ -1,10 +1,11 @@
-from lib.controller import Controller
+from lib.objective import Objective
 
 
 class Suite:
     vars: dict
-    controllers: list[Controller]
+    objectives: list[Objective]
 
     def run(self):
-        for controller in self.controllers:
-            controller.execute(self.vars)
+        for objective in self.objectives:
+            for controller in objective.controllers:
+                controller.execute(self.vars)
