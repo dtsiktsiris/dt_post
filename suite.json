@@ -1,6 +1,6 @@
 [
   {
-    "name": "Get info and POST a new program",
+    "name": "Get user ID and Product object",
     "controllers": [
       {
         "name": "get all user and keep first id",
@@ -23,7 +23,12 @@
         "keep": {
           "firstProduct": "$"
         }
-      },
+      }
+    ]
+  },
+  {
+    "name": "POST new order",
+    "controllers": [
       {
         "name": "post cart",
         "type": "simple",
